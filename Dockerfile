@@ -24,7 +24,7 @@ RUN apt-get install -y build-essential \
 
 
 RUN pip3 install beautifulsoup4==4.3.2 \
-    ftfy==4.0.0
+    ftfy==4.0.0 \
     ipython[all]==3.1.0 \
     matplotlib==1.4.3 \
     mysqlclient==1.3.6 \
