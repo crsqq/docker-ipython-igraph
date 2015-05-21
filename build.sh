@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build -t testnotebookimg .
+docker build -t notebookimg .
