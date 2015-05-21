@@ -6,6 +6,7 @@ RUN apt-get update -y
 RUN apt-get install -y build-essential \
     curl \
     gfortran \
+    git \
     libatlas3-base \
     libfreetype6-dev \
     libjpeg8-dev \
