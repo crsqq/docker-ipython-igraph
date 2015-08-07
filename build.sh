@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build -t notebookimg .
+docker build -t ip_notebook_stack .

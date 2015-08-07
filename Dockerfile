@@ -49,5 +49,7 @@ USER ipython
 VOLUME /notebooks
 WORKDIR /notebooks/
 
+ADD test_notebook.ipynb test_notebook.ipynb
+
 EXPOSE 8888
 CMD ipython notebook --no-browser --ip=0.0.0.0
