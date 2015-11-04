@@ -40,10 +40,8 @@ RUN pip3 install beautifulsoup4==4.3.2 \
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
 #run as non-privileged user and chown dir
-RUN useradd -m ipython
+RUN echo "root:root" | chpasswd
 RUN mkdir -p /notebooks
-RUN chown ipython /notebooks
-USER ipython
 
 # directory for notebooks
 VOLUME /notebooks
@@ -51,5 +49,11 @@ WORKDIR /notebooks/
 
 ADD test_notebook.ipynb test_notebook.ipynb
 
+RUN useradd -m -s /bin/bash jupyter
+USER jupyter
+ENV HOME /home/jupyter
+ENV SHELL /bin/bash
+ENV USER jupyter
+ENV PATH /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 EXPOSE 8888
 CMD ipython notebook --no-browser --ip=0.0.0.0
