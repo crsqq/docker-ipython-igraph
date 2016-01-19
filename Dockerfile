@@ -24,12 +24,13 @@ RUN apt-get install -y build-essential \
     wget
 
 
+RUN pip3 install numpy==1.9.2
+
 RUN pip3 install beautifulsoup4==4.3.2 \
     ftfy==4.0.0 \
     ipython[all]==3.1.0 \
     matplotlib==1.4.3 \
     mysqlclient==1.3.6 \
-    numpy==1.9.2 \
     pandas==0.16.1 \
     python-igraph==0.7.1-4 \
     scikit-learn==0.16.1 \
@@ -37,6 +38,9 @@ RUN pip3 install beautifulsoup4==4.3.2 \
 
 
 
+# Set the timezone.
+RUN sudo echo "Europe/Berlin" > /etc/timezone
+RUN sudo dpkg-reconfigure -f noninteractive tzdata
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
 #run as non-privileged user and chown dir
